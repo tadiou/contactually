@@ -1,0 +1,26 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarnpkg add webpack webpack-merge js-yaml path-complete-extname webpack-manifest-plugin babel-loader@7.x coffee-loader coffee-script babel-core babel-preset-env compression-webpack-plugin rails-erb-loader glob extract-text-webpack-plugin node-sass file-loader sass-loader css-loader style-loader postcss-loader autoprefixer postcss-smart-import precss
+
+PATH: 
+  /home/dan/.rvm/gems/ruby-2.2.2@contactually/bin:/home/dan/.rvm/gems/ruby-2.2.2@global/bin:/home/dan/.rvm/rubies/ruby-2.2.2/bin:/home/dan/.rvm/bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+
+Yarn version: 
+  0.23.4
+
+Node version: 
+  7.10.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/var/www/contactually/contactually-lite/node_modules/acorn'
