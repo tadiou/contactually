@@ -27,6 +27,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'guard-rails', require: false
   gem 'guard-bundler', require: false
   gem 'guard-rspec', require: false
