@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NormalizePhone::Base, type: :model do
+RSpec.describe NormalizePhone::Base, type: :service do
   subject(:normalize_phone_service) { described_class.new(phone_number) }
 
   describe 'Normalizes Phone Number' do
