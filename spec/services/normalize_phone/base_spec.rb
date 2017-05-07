@@ -77,7 +77,7 @@ RSpec.describe NormalizePhone::Base, type: :service do
   end
 
   describe '.remove_leading_one!' do
-    it 'returns the argument if its not a phone number type', focus: true do
+    it 'returns the argument if its not a phone number type' do
       klass = described_class.new(not_a_phone_number)
       expect(klass.remove_leading_one!(not_a_phone_number)).to eq(not_a_phone_number)
     end

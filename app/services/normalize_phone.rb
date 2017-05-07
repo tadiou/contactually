@@ -12,7 +12,7 @@ class NormalizePhone
   # Access both component classes base and extension from the same string
   # @param [String] string A phone number looking string
   def initialize(string)
-    @phone = NormalizePhone::Base.normalize(string)
-    @extension = NormalizePhone::Extension.normalize(string)
+    @phone = NormalizePhone::Base.new(string).normalize
+    @extension = NormalizePhone::Extension.new(string).normalize
   end
 end
