@@ -1,21 +1,25 @@
+require: rubocop-rspec
 AllCops:
-  RunRailsCops: true
+  DisplayCopNames: true
+  DisplayStyleGuide: true
   Exclude:
-    - 'tmp/**/*'
-    - 'vendor/**/*'
-    - 'bin/**/*'
-
-Documentation:
-  Enabled: false
-
-Style/Encoding:
-  Enabled: false
-
-Style/IndentationWidth:
-  Width: 2
-
-Style/Semicolon:
+    - bin/**/*
+    - db/**/*
+    - vendor/**/*
+    - Guardfile
+    - spec/support/shared_contexts/rake.rb
+    - node_modules/**/*
+Rails:
   Enabled: true
+Rails/FilePath:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - lib/tasks/**/*
+    - config/routes.rb
 Metrics/LineLength:
   Max: 100
