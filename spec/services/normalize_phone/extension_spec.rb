@@ -10,16 +10,24 @@ RSpec.describe NormalizePhone::Extension, type: :services do
     context 'with x: 1-847-742-3843 x12047' do
       let(:phone_number) { '1-847-742-3843 x12047' }
 
-      it 'returns an array split into two segements with strings' do
-        expect(NormalizePhone::Extension.split(phone_number).count).to eq 2
-      end
-
-      it 'returns an array with the first segement as \'the phone number\'' do
+      it 'returns an object with the first segement as \'the phone number\'' do
         expect(NormalizePhone::Extension.split(phone_number).phone_number).to eq '1-847-742-3843'
       end
 
-      it 'returns an array with the last segement as \'the extension\'' do
+      it 'returns an object with the last segement as \'the extension\'' do
         expect(NormalizePhone::Extension.split(phone_number).extension).to eq '12047'
+      end
+    end
+
+    context 'without extension: 1-847-742-3843' do
+      let(:phone_number) { '1-847-742-3843' }
+
+      it 'returns an object with the first segement as \'the phone number\'' do
+        expect(NormalizePhone::Extension.split(phone_number).phone_number).to eq '1-847-742-3843'
+      end
+
+      it 'returns an object with the last segement as \'the extension\'' do
+        expect(NormalizePhone::Extension.split(phone_number).extension).to eq nil
       end
     end
   end
