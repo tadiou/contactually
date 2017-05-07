@@ -17,3 +17,5 @@
 /tmp
 /public/packs
 /node_modules
+.ruby-gemset
+.ruby-version
