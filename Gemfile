@@ -17,6 +17,7 @@ gem 'webpacker', git: 'https://github.com/rails/webpacker'
 group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'rspec-rails', '~> 3.5'
   gem 'rubocop-rspec'
   gem 'scss_lint', '~> 0.48', require: false
