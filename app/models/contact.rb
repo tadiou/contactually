@@ -12,5 +12,15 @@
 #  updated_at    :datetime         not null
 #
 
+# Contact is the base record of the application.
 class Contact < ActiveRecord::Base
+  before_save :normalize_phone
+
+  # no validation because that wasn't discussed.
+
+  private
+
+  def normalize_phone
+    self.phone, self.extension = NormalizePhone.normalize(phone)
+  end
 end
