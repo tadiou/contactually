@@ -1,4 +1,9 @@
 class NormalizePhone
+  # Just a really simple implementation. We're doing V1 here, not a really complicated
+  #   rules engine of how to look at phone numbers.
+  # Ideally PhoneNumber would become it's own value object with it's own rule sets
+  #   which are dependent on internationalization rules et al, and we'd be able to
+  #   implement different normalization interfaces throughout.
   class Base
     attr_reader :phone_number
 
@@ -17,10 +22,10 @@ class NormalizePhone
     # @return [String]
     def normalize(phone_number = nil)
       @phone_number ||= phone_number
-      strip_values!(@phone_number)
+      strip_numbers!(@phone_number)
       remove_leading_one!(@phone_number)
-      raise NormalizePhone::NotAPhoneNumberError if phone_number.size < MIN_PHONE_DIGITS
-      phone_number
+      raise NormalizePhone::NotAPhoneNumberError if @phone_number.size < MIN_PHONE_DIGITS
+      @phone_number
     end
 
     # Strips down a string to only regex [0-9]. Bang method. Replaces in place.
