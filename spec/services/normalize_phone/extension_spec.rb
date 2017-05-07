@@ -26,7 +26,7 @@ RSpec.describe NormalizePhone::Extension, type: :services do
         expect(NormalizePhone::Extension.split(phone_number).phone_number).to eq '1-847-742-3843'
       end
 
-      it 'returns an object with the last segement as \'the extension\'' do
+      it 'returns nil for .extension' do
         expect(NormalizePhone::Extension.split(phone_number).extension).to eq nil
       end
     end
