@@ -23,3 +23,5 @@ Metrics/BlockLength:
     - config/routes.rb
 Metrics/LineLength:
   Max: 100
+RedundantReturn:
+  AllowMultipleReturnValues: true
