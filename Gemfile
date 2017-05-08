@@ -4,7 +4,6 @@ ruby '2.2.6'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
-gem 'paperclip'
 gem 'rails', '~> 4.2'
 gem 'rails-api'
 gem 'react-rails', '~> 2.1'
@@ -39,5 +38,4 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'rails-controller-testing'
 end
