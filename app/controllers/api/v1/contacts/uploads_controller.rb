@@ -2,12 +2,13 @@ require 'csv'
 
 module Api
   module V1
-    class Contacts
+    module Contacts
       # Api::ContactsController
       #   Broken up into Upload Controller to handle specifically the mass
       #   upload actions.
-      class UploadController < ApiController
+      class UploadsController < ApiController
         def create
+          ContactCsvMassUploadJob.perform_later(params[:file])
         end
       end
     end
