@@ -8,7 +8,7 @@ module Api
       #   upload actions.
       class UploadsController < ApiController
         def create
-          ContactCsvMassUploadJob.perform_later(params[:file])
+          Contact::AsCSV.new(params[:csv_upload].tempfile).import
         end
       end
     end
