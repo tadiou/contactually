@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe NormalizePhone, type: :model do
   subject(:normalize_phone_service) { described_class.new(phone_number) }
+
   let(:phone_number) { '1-630-723-7263 x 12345' }
 
   # Doesn't actually describe the functionality of base/extension
