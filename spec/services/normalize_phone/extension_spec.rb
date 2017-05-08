@@ -9,8 +9,13 @@ RSpec.describe NormalizePhone::Extension, type: :services do
       expect(klass.normalize(klass.extension)).to eq('12047')
     end
 
-    it 'with x: 1-847-742-3843 x12047  (whitespace)  returns 12047', focus: true do
+    it 'with x: 1-847-742-3843 x12047  (whitespace)  returns 12047' do
       klass = described_class.new('1-847-742-3843 x12047    ')
+      expect(klass.normalize(klass.extension)).to eq('12047')
+    end
+
+    it 'with x: 1-847-742-3843 x 12047  (whitespace)  returns 12047' do
+      klass = described_class.new('1-847-742-3843 x 12047    ')
       expect(klass.normalize(klass.extension)).to eq('12047')
     end
 

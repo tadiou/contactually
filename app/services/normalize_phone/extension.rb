@@ -15,7 +15,7 @@ class NormalizePhone
     def normalize(extension = nil)
       @extension ||= extension
       return if @extension.nil?
-      @extension.strip
+      @extension.strip!
       raise NormalizePhone::ExtensionContainsNonnumericsError if @extension !~ NUMBERS_ONLY_REGEX
       @extension
     end
