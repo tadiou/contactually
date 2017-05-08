@@ -10,6 +10,7 @@
 #  company_name  :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  extension     :string
 #
 
 FactoryGirl.define do

@@ -8,11 +8,16 @@
 #   out country codes, but, that was an incorrect assumption)
 class NormalizePhone
   attr_reader :phone, :extension
+  alias phone_number phone
 
   # Access both component classes base and extension from the same string
   # @param [String] string A phone number looking string
   def initialize(string)
     @phone = NormalizePhone::Base.new(string).normalize
     @extension = NormalizePhone::Extension.new(string).normalize
+  end
+
+  def phone_and_extension
+    return @phone, @extension
   end
 end

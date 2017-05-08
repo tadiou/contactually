@@ -10,6 +10,7 @@
 #  company_name  :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  extension     :string
 #
 
 # Contact is the base record of the application.
@@ -21,6 +22,6 @@ class Contact < ActiveRecord::Base
   private
 
   def normalize_phone
-    self.phone, self.extension = NormalizePhone.normalize(phone)
+    self.phone_number, self.extension = NormalizePhone.new(phone_number).phone_and_extension
   end
 end
