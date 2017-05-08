@@ -1,1 +1,16 @@
-<%= javascript_pack_tag 'hello_react' %>
+<%= javascript_pack_tag 'contactually' %>
+
+<div class='uploader'>
+  <form onSubmit={this.handleSubmit}>
+    <input type="file" value={this.state.value} onChange={this.handleChange} />
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+
+<div class='filter'>
+  <button>Exclude non-.com</button>
+  <button>Sort Alphabetically</button>
+</div>
+
+<div class='results'>
+</div>
