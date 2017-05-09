@@ -3,7 +3,7 @@ module Api
     # Because we're handling bulk uploading outside via the Api::v1::Contacts::UploadsController
     #   we only need index, show, and destroy. Nothing else.
     class ContactsController < ApiController
-      before_action :set_contact, only: :show
+      before_action :set_contact, only: [:show, :destroy]
 
       # Route: /api/v1/contacts.json
       # Method: GET
