@@ -6,7 +6,8 @@ class Contacts extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="table">
+        <div className="row"> {this.headerList()} </div>
         {this.contactsList()}
       </div>
     );
@@ -18,25 +19,14 @@ class Contacts extends React.Component {
   
   contactsList () {
     return this.state.contacts.map((contact, index) => {
-      return <div key={contact.id}><Contact contact={contact} /></div>
+      return <Contact key={index} contact={contact} />;
+    });
+  }
+
+  headerList () {
+    return ['First Name', 'Last Name', 'Email', 'Phone Number', 'Extension', 'Company Name'].map((header, index) => {
+      return <div className='column header' key={index}>{header}</div>;
     });
   }
 }
 
-
-Contact.propTypes = {
-  firstName: React.PropTypes.string,
-  lastName: React.PropTypes.string,
-  emailAddress: React.PropTypes.string,
-  phoneNumber: React.PropTypes.string,
-  extension: React.PropTypes.string
-};
-
-
-// <div>
-//         <div>First Name: {this.props.firstName}</div>
-//         <div>Last Name: {this.props.lastName}</div>
-//         <div>Email Address: {this.props.emailAddress}</div>
-//         <div>Phone Number: {this.props.phoneNumber}</div>
-//         <div>Extension: {this.props.extension}</div>
-//       </div>

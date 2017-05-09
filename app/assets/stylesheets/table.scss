@@ -1,0 +1,33 @@
+$grey: #999;
+$dark: #bbb;
+$light: #fff;
+
+.table {
+  border: 1px solid $grey;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+
+  .header {
+    background-color: $dark;
+    font-weight: 700;
+  }
+
+  .row {
+    border-bottom: 1px solid $grey;
+    display: flex;
+    flex-flow: row nowrap;
+
+    &:nth-of-type(even) { background-color: $dark; }
+    &:nth-of-type(odd) { background-color: $light; }
+  }
+
+  .column {
+    display: flex;
+    flex-basis: 0;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+  }
+}
+
+
