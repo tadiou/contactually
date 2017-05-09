@@ -9,6 +9,7 @@ class Contact extends React.Component {
         <div className="column">{contact.phone_number}</div>
         <div className="column">{contact.extension}</div>
         <div className="column">{contact.company_name}</div>
+        <DeleteButton id={contact.id} type="contacts" deleteEntity={this.props.removeContact}/>
       </div>
     )
   }

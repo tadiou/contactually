@@ -4,6 +4,8 @@ class Contacts extends React.Component {
     this.state = { contacts: [] }
   }
 
+  // Render the header, and the contact list, the contact itself becomes a pair of
+  //   components, and this provides the structure around the contacts
   render () {
     return (
       <div className="table">
@@ -13,14 +15,31 @@ class Contacts extends React.Component {
     );
   }
 
+  // So, we're tapping the API and binding it to the update (ideally we'd only)
+  //   pull the contacts when they're updated via various other actions)
+  //   and updating it every ten second.
   componentDidMount () {
+    this.pullContacts();
+    // setInterval(this.pullContacts.bind(this), 10000);
+  }
+
+  pullContacts () {
     $.get('api/v1/contacts', (data) => { this.setState({ contacts: data }) });
   }
   
+  // Builds the contact list here.
   contactsList () {
     return this.state.contacts.map((contact, index) => {
-      return <Contact key={index} contact={contact} />;
+      return <Contact key={contact.id} contact={contact} removeContact={this.removeContact.bind(this)}/>;
     });
+  }
+
+  removeContact (contactId) {
+    this.setState({
+      contacts: _.reject(this.state.contacts, {
+        id: contactId
+      })
+    })
   }
 
   headerList () {

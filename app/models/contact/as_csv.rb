@@ -39,9 +39,15 @@ class Contact
       @csv.shift # we're skipping the header line, ideally this'd be optioned
       @csv.each do |row|
         # Ideally we wouldn't fail silently & go back & return
-        #   failed contacts imported
-        Contact.create(first_name: row[0], last_name: row[1], email_address: row[2],
-                       phone_number: row[3], company_name: row[4])
+        #   failed contacts imported, and we shouldn't import duplicates
+        # I thought something to do find or createby to index off of would be nice
+        #   also it made it easier for me to test importation
+        Contact.find_or_create_by(email_address: row[2]) do |contact|
+          contact.first_name = row[0]
+          contact.last_name = row[1]
+          contact.phone_number = row[3]
+          contact.company_name = row[4]
+        end
       end
     end
   end
