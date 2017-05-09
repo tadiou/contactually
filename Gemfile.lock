@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/rails/webpacker
-  revision: 74cde3c0f028516f11a793c17235ea71af21bca6
-  specs:
-    webpacker (1.2)
-      activesupport (>= 4.2)
-      multi_json (~> 1.2)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/tadiou/guard-eslint.git
   revision: 968453f1d331beebe6e30c8f5b212901aead1e41
   specs:
@@ -315,7 +306,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-  webpacker!
 
 RUBY VERSION
    ruby 2.2.6p396
