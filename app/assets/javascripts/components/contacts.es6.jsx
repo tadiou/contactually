@@ -35,10 +35,16 @@ class Contacts extends React.Component {
   }
 
   removeContact (contactId) {
-    this.setState({
-      contacts: _.reject(this.state.contacts, {
-        id: contactId
-      })
+    $.ajax({
+      url: `api/v1/contacts/${contactId}`,
+      type: 'DELETE',
+      success: () => {
+        this.setState({
+          contacts: _.reject(this.state.contacts, {
+            id: contactId
+          })
+        })
+      }
     })
   }
 

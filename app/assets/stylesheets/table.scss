@@ -26,8 +26,8 @@ $light: #fff;
     display: flex;
     flex-flow: row nowrap;
 
-    &:nth-of-type(even) { background-color: $dark; }
-    &:nth-of-type(odd) { background-color: $light; }
+    &:nth-of-type(even) { background-color: $light; }
+    &:nth-of-type(odd) { background-color: $dark; }
   }
 
   .column {
