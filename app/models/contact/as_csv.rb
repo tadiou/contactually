@@ -36,17 +36,27 @@ class Contact
     #   any fuzzy searching from headers to schema (and we're not handling explicit
     #   matching either), this should be 'good enough'.
     def import
-      @csv.shift # we're skipping the header line, ideally this'd be optioned
-      @csv.each do |row|
+      # we're skipping the header line, ideally this'd be optioned
+      @csv.tap(&:shift).each do |row|
         # Ideally we wouldn't fail silently & go back & return
         #   failed contacts imported, and we shouldn't import duplicates
         # I thought something to do find or createby to index off of would be nice
         #   also it made it easier for me to test importation
-        Contact.find_or_create_by(email_address: row[2]) do |contact|
-          contact.first_name = row[0]
-          contact.last_name = row[1]
-          contact.phone_number = row[3]
-          contact.company_name = row[4]
+        # email_address should be indexed.
+        # Also Find or Create by is wildly inefficient when doing bulk imports
+        #   ideally what I'd rather do is diff the two lists when putting
+        #   them together by getting all email addresses in the db and doing
+        #   array subtraction to find what the import list has that the
+        #   db does not.
+        # Lastly, as we're doing a bulk import of a single unit, we'd like to ensure
+        #   that they all go off without a hitch, ergo: transaction.
+        Contact.transaction do
+          Contact.find_or_create_by(email_address: row[2]) do |contact|
+            contact.first_name = row[0]
+            contact.last_name = row[1]
+            contact.phone_number = row[3]
+            contact.company_name = row[4]
+          end
         end
       end
     end
